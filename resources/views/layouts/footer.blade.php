@@ -11,10 +11,20 @@
 <script src="{{asset('adminlte/js/adminlte.min.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('adminlte/js/demo.js')}}"></script>
+<script src="{{asset('adminlte/plugins/jquery-confirm/jquery.confirm.min.js')}}"></script>
+<script src="{{asset('adminlte/plugins/sweetalert/sweetalert.min.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js  "></script>
+
 <script>
     $(document).ready(function () {
         $('.sidebar-menu').tree()
     })
 </script>
+<script src="{{asset('js/ayman.js')}}"></script>
+
+
+@stack('scripts')
+@stack('print')
+@stack('showpassword')
 </body>
 </html>

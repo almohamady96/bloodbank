@@ -117,6 +117,8 @@
                 <li><a href="{{url(route('contact.index'))}}"><i class="fa fa-phone"></i> <span class="text-bold">Contacts</span></a></li>
                 <li><a href="{{url(route('report.index'))}}"><i class="fa fa-book"></i> <span class="text-bold">Reports</span></a></li>
                 <li><a href="{{url(route('setting.index'))}}"><i class="fa fa-cogs"></i> <span class="text-bold">Settings</span></a></li>
+                <li><a href="{{url(route('user.index'))}}"><i class="fa fa-users"></i> <span class="text-bold">Users</span></a></li>
+                <li><a href="{{url(route('role.index'))}}"><i class="fa fa-list"></i> <span class="text-bold">Roles</span></a></li>
                 <li><a href="{{url('user/change-password')}}"><i class="fa fa-key"></i> <span class="text-bold">change-password</span></a></li>
 
                 {{--<li><a href="https://adminlte.io/docs"><i class="fa fa-book"></i> <span>settings</span></a></li>--}}

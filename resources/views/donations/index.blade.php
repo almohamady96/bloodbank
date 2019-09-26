@@ -69,6 +69,8 @@
 </tbody>
 @endforeach
 </table>
+                        <a href="" class="btn btn-sm btn-success" id="printall">Print</a>
+
 </div>
 
 @else
@@ -85,4 +87,11 @@ no data
 
 </section>
 <!-- /.content -->
+    @push('print')
+        <script>
+            $("#printall").click(function(){
+                window.print();
+            });
+        </script>
+    @endpush
 @endsection

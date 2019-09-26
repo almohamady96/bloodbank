@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use Illuminate\Http\Request;
-
+use Response;
 class CategoryController extends Controller
 {
     /**
@@ -14,8 +14,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $records = Category::paginate(10);
-        return view('categories.index',compact('records'));
+        $categories = Category::paginate(10);
+        return view('categories.index',compact('categories'));
     }
 
     /**
@@ -104,9 +104,23 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $record = Category::findOrFail($id);
-        $record->delete();
-        flash()->error('<p class="text-center" style="font-size:20px; font-weight:900;font-family:Arial" >تـــم الحــذف </p>');
-        return back();
+        $category = Category::findOrFail($id);
+        if (!$category )
+        {
+            $data = [
+                'status' => 0,
+                'message' => 'تعذر الحصول علي البيانات'
+            ];
+            return Response::json($data, 200);
+        }
+        $category->delete();
+        $data = [
+            'status' => 1,
+            'message' => 'تم الحذف بنجاح',
+            'id' => $id
+        ];
+        return Response::json($data, 200);
+
+
     }
 }

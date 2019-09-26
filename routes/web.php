@@ -17,17 +17,21 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('governorate', 'GovernorateController');
-Route::resource('city', 'CityController');
-Route::resource('category','CategoryController');
-Route::resource('post','PostController');
-Route::resource('donation','DonationController');
-Route::resource('contact','ContactController');
-Route::resource('client','ClientController');
-Route::resource('report','ReportController');
-Route::resource('setting','SettingController');
+Route::group(['middleware'=>['auth','auto-check-permission']],function (){
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::resource('governorate', 'GovernorateController');
+    Route::resource('city', 'CityController');
+    Route::resource('category', 'CategoryController');
+    Route::resource('post', 'PostController');
+    Route::resource('donation', 'DonationController');
+    Route::resource('contact', 'ContactController');
+    Route::resource('client', 'ClientController');
+    Route::resource('report', 'ReportController');
+    Route::resource('setting', 'SettingController');
+    Route::resource('user', 'UserController');
+    Route::resource('role', 'RoleController');
 //  user reset password
-Route::get('user/change-password','UserController@changePassword');
-Route::post('user/change-password','UserController@changePasswordSave');
+    Route::get('user/change-password', 'UserController@changePassword');
+    Route::post('user/change-password', 'UserController@changePasswordSave');
 
+});
